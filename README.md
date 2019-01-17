@@ -1,6 +1,4 @@
 # SM-Comunicaciones
-Aplicación para SM Comunicaciones.
+Aplicación para SM Comunicaciones para el registro de pagos.
 
-8==D
 
-Dejate chago auauauauauauaua auauauau aayayayyYyayyAYyayyAYYa

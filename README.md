@@ -1,6 +1,6 @@
 # SM-Comunicaciones
 Aplicación para SM Comunicaciones.
 
-<span style="font-size:50px;">8==D<span> <br>
+<h1>8==D</h1>
 Ricura pura esto es un Test-ticulo<br>
 Dejate chago auauauauauauaua auauauau aayayayyYyayyAYyayyAYYa

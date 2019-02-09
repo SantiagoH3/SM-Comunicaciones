@@ -7,6 +7,8 @@
     <title>SM Comunicaciones</title>
 
     <link rel="stylesheet" href="./src/scss/app.scss">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
 </head>
 <body>
     <!-- Content -->
@@ -24,23 +26,28 @@
                     </div>
                     <div class="modal-body">
                         <form action="#" method="post">
-                            <div class="form-group">
-                                <input type="email" class="form-control" name="email" placeholder="Email" required="required">		
+                            <div class="input-group form-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                <input id="email" type="text" class="form-control" name="email" placeholder="Email">
                             </div>
+                            <div class="input-group form-group">
+                                    <span class="input-group-addon span2"><i class="glyphicon glyphicon-lock"></i></span>
+                                    <input id="password" type="password" class="form-control input-pass" name="password" placeholder="Password">
+                            </div>       
                             <div class="form-group">
-                                <input type="password" class="form-control" name="password" placeholder="Contraseña" required="required">	
-                            </div>        
-                            <div class="form-group">
-                                <button class="btn-login btn-sm" type="submit">Ingresar</button>
+                                <div class="btn-login-form">
+                                    <button class="btn-login btn-sm" type="submit">Ingresar</button>
+                                </div>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <a href="#">Olvidé mi contraseña</a>
+                        <a href="#" class="lost-pass">Olvidé mi contraseña</a>
                     </div>
                 </div>
             </div>     
         </div>
     </div>
+    <div class="hola">qwerty nepe</div>
 </body>
 </html>

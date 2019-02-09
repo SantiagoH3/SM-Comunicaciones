@@ -1,0 +1,31 @@
+body {
+    background-color: $light-blue;
+    .login {
+
+        font-family: $primary-font;
+    
+
+        .container {
+            > div {
+                padding-top: 131px;
+                padding-bottom: 59px;
+
+                > p {
+                     text-align: center;
+                    font-size: 72px;
+                    font-weight: bold;
+                    line-height: normal;
+                    color: $black-b;
+                    -webkit-text-stroke-width: 1px;
+                    -webkit-text-stroke-color: $border;
+                    border: $border;
+                    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.66);
+                }
+            }
+        }
+    }
+    .show {
+        display: block!important;
+    }
+    
+} 

@@ -70,6 +70,12 @@ body {
             input {
                 font-size: 20px;
             }
+            .active-input {
+                color: #e67e22;
+            }
+            .active-input-ok {
+                color: #2ecc71;
+            }
         }
 
         .btn-login {

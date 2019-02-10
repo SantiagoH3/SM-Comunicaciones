@@ -1,0 +1,50 @@
+.input-nc {
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: 0.375rem 0.75rem;  
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin-bottom: 7px;
+    width: 85%;
+    font-size: 15px;
+    margin: 0 auto;
+}
+
+.border-nc {
+    border-left: 1px solid rgb(0, 0, 0);
+    border-right: 1px solid rgb(0, 0, 0);
+    border-top: 1px solid #0585FB;
+    border-bottom: 1px solid #0585FB;
+}
+
+.nc-nombre {
+    border-left: 1px solid rgb(0, 0, 0);
+    border-top: 1px solid rgb(0, 0, 0);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom: 1px solid #0585FB; 
+}
+
+.nc-localidad {
+    
+}
+
+.nc-fechaderegistro {
+    
+}
+
+.nc-telefono {
+    
+}
+
+.nc-ip {
+    border-left: 1px solid rgb(0, 0, 0);
+    border-bottom: 1px solid rgb(0, 0, 0);
+    border-top: 1px solid #0585FB;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.modal-title {
+    margin: 0 auto;
+}

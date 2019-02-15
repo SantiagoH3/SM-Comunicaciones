@@ -1,0 +1,38 @@
+.table-container {
+    width: 80%;
+    margin: 100px auto;
+    text-align: center;
+
+    .table-header {
+        height: 50px;
+        background-color: #639ECA;
+        border-top-right-radius: 20px;
+        border-top-left-radius: 20px;
+    }
+
+    .table-footer {
+        height: 50px;
+        background-color: #639ECA;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    table {
+        width: 100%;
+        background-color: white;
+
+        tbody {
+            font-size: 15px;
+            border-top: 1px solid rgb(209, 209, 209);
+
+            th {
+                font-weight: bold;
+                text-align: center;
+            }
+        }
+
+        .hcenter {
+            color: #000000;
+        }
+    }
+}

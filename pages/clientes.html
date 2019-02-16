@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <title>Clientes</title>
 </head>
@@ -20,11 +21,11 @@
             <table class="table-sm">
                 <thead>
                     <tr>
-                    <th class="hcenter" scope="col">No.</th>
-                    <th class="hcenter" scope="col">IP</th>
-                    <th class="hcenter" scope="col">Localidad</th>
-                    <th class="nom" scope="col">Nombre</th>
-                    <th class="hcenter" scope="col">Acciones</th>
+                        <th class="hcenter" scope="col">No.</th>
+                        <th class="hcenter" scope="col">IP</th>
+                        <th class="hcenter" scope="col">Localidad</th>
+                        <th class="nom" scope="col">Nombre</th>
+                        <th class="hcenter" scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -33,28 +34,40 @@
                         <td>192.168.10.2</td>
                         <td>San Alexis</td>
                         <td class="nom">José Curiel</td>
-                        <td>Borrar/Editar</td>
+                        <td>
+                            <button class="edit"><i class="fas fa-pencil-alt"></i></button>
+                            <button class="delete" data-toggle="modal" data-target="#delete"><i class="far fa-trash-alt"></i></button>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">2</th>
                         <td>192.168.10.3</td>
                         <td>San Luis</td>
                         <td class="nom">Luis Alvarez</td>
-                        <td>Borrar/Editar</td>
+                        <td>
+                            <button class="edit"><i class="fas fa-pencil-alt"></i></button>
+                            <button class="delete" data-toggle="modal" data-target="#delete"><i class="far fa-trash-alt"></i></button>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
                         <td>192.168.10.4</td>
                         <td>San Antonio</td>
                         <td class="nom">Santiago Hernández </td>
-                        <td>Borrar/Editar</td>
+                        <td>
+                            <button class="edit"><i class="fas fa-pencil-alt"></i></button>
+                            <button class="delete" data-toggle="modal" data-target="#delete"><i class="far fa-trash-alt"></i></button>
+                        </td>
                     </tr>
                     <tr>
                         <th scope="row">4</th>
                         <td>192.168.10.5</td>
                         <td>San Diego</td>
                         <td class="nom">Diego Jimenez</td>
-                        <td>Borrar/Editar</td>
+                        <td>
+                            <button class="edit"><i class="fas fa-pencil-alt"></i></button>
+                            <button class="delete" data-toggle="modal" data-target="#delete"><i class="far fa-trash-alt"></i></button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -91,6 +104,20 @@
                                 <button type="button" class="btn-mnc btn-guardar">Guardar</button>
                             </div>
                         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal eliminar cleinte -->
+        <div class="modal fade modal-ec" id="delete" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h2>¿Seguro que quieres eliminar este Cliente?</h2>
+                        <div class="buttons">
+                            <button class="si-bc">Si</button>
+                            <button class="no-bc" data-dismiss="modal">No</button>
+                        </div>
                     </div>
                 </div>
             </div>

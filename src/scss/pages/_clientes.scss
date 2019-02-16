@@ -25,5 +25,50 @@ body {
         overflow-x: hidden;
         outline: none;
     }
+
+    .modal-ec {
+        margin: 13% 0;
+
+        .modal-content {
+            border: 1px solid black;
+            border-radius: 35px;
+        }
+
+        .modal-body{
+
+            h2 {
+                font-size: 18px;
+                text-align: center;
+            }
+
+            .buttons {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                font-size: 17px;
+                font-weight: bold;
+
+                button {
+                    width: 130px;;
+                    height: 40px;
+                    margin-top: 15px;
+                    border-radius: 25px;
+                    outline: none;
+                }
+
+                .si-bc {
+                    margin-right: 5px;
+                    background: #84EC7B;
+                    border: 1px solid #67A562;
+                }
+
+                .no-bc {
+                    margin-left: 5px;
+                    background: #FC9999;
+                    border: 1px solid #FF0000;
+                }
+            }
+        }
+    }
 }
 

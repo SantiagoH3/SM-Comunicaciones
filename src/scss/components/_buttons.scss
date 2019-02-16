@@ -2,6 +2,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    outline: none;
 }
 
 .btn-nc {
@@ -13,6 +14,7 @@
     border: 1px solid white;
     border-radius: 25px;
     box-shadow: 1px 3px 5px black;
+    outline: none;
 }
 
 .btn-filtro {
@@ -23,4 +25,5 @@
     background-color: #f8f8f8;
     border: 1px solid #f8f8f8;
     margin: 10px 30px;
+    outline: none;
 }

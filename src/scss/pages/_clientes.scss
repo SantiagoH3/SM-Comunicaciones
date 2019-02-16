@@ -1,7 +1,29 @@
 body {
-    font-family: $primary-font;
 
     .nom {
         text-align: left;
     }
+
+    .btn-cerrar {
+        background-color: #0585FB;
+        border: 1px solid #0585FB;
+    }
+
+    .btn-guardar {
+        background-color: #2ecc71;
+        border: 1px solid #2ecc71;;
+    }
+
+    .btn-mnc {
+        margin: 0 auto;
+        width: 30%;
+        height: 40px;
+        color: white;
+        box-shadow: -0.5px 2px 4px 1px black;
+        font-size: 20px;
+        border-radius: 10px;
+        overflow-x: hidden;
+        outline: none;
+    }
 }
+

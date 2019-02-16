@@ -1,7 +1,6 @@
 .table-container {
     width: 80%;
-    margin: 100px auto;
-    text-align: center;
+    margin: 100px auto; 
 
     .table-header {
         height: 50px;
@@ -28,15 +27,16 @@
 
             th, td {
                 width: auto;
+                text-align: center;
             }
 
             .nom {
                 width: 270px;
+                text-align: left;
             }
 
             th {
                 font-weight: bold;
-                text-align: center;
                 border-top: 1px solid rgb(230, 230, 230);
             }
 
@@ -47,6 +47,7 @@
 
         .hcenter {
             color: #000000;
+            text-align: center;
         }
     }
 }

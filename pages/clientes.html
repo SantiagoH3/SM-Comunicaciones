@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/src/scss/app.scss">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <title>Clientes</title>
 </head>
-<body>
-    <div class="">
+<body style='font-family: poppins; background-color: #E8F1FD;'>
+    <div class="contain">
         <div class="table-container">
             <div class="table-header">
                 <input class="btn-filtro" type="image" value="Filtro" src="" />
@@ -17,10 +20,10 @@
             <table class="table-sm">
                 <thead>
                     <tr>
-                    <th scope="col">No.</th>
+                    <th class="hcenter" scope="col">No.</th>
                     <th class="hcenter" scope="col">IP</th>
                     <th class="hcenter" scope="col">Localidad</th>
-                    <th class="hcenter nom" scope="col">Nombre</th>
+                    <th class="nom" scope="col">Nombre</th>
                     <th class="hcenter" scope="col">Acciones</th>
                     </tr>
                 </thead>
@@ -56,7 +59,40 @@
                 </tbody>
             </table>
             <div class="table-footer">
-                <button class="btn-nc" type="submit">Nuevo Cliente</button>
+                <button class="btn-nc" data-toggle="modal" data-target="#exampleModal" type="submit">Nuevo Cliente</button>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">			
+                        <h4 class="modal-title">Nuevo Cliente</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form action="#" method="post">
+                            <div class="form-group">
+                                <input type="text" class="input-nc nc-nombre" name="nombre" placeholder="Nombre(s)" required="required">		
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="input-nc nc-localidad border-nc" name="localidad" placeholder="Localidad" required="required">		
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="input-nc nc-fechaderegistro border-nc" name="fecharegistro" placeholder="Fecha de Registro" required="required">		
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="input-nc nc-telefono border-nc" name="telefono" placeholder="Número Telefónico" required="required">		
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="input-nc np-border" name="ip" placeholder="Dirección IP" required="required">		
+                            </div> 
+                            <div class="modal-footer">
+                                <button type="button" class="btn-mnc btn-cerrar" data-dismiss="modal">Cerrar</button>
+                                <button type="button" class="btn-mnc btn-guardar">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

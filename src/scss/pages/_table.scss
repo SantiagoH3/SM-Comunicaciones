@@ -20,14 +20,28 @@
     table {
         width: 100%;
         background-color: white;
+        margin-top: 0;
 
         tbody {
             font-size: 15px;
             border-top: 1px solid rgb(209, 209, 209);
 
+            th, td {
+                width: auto;
+            }
+
+            .nom {
+                width: 270px;
+            }
+
             th {
                 font-weight: bold;
                 text-align: center;
+                border-top: 1px solid rgb(230, 230, 230);
+            }
+
+            td {
+                border-top: 1px solid rgb(230, 230, 230);
             }
         }
 

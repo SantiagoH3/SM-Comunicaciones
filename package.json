@@ -20,11 +20,15 @@
   "homepage": "https://github.com/SantiagoH3/SM-Comunicaciones",
   "devDependencies": {
     "parcel-bundler": "^1.11.0",
-    "sass": "^1.16.1"
+    "sass": "^1.17.0"
   },
   "dependencies": {
-    "bootstrap": "^4.2.1",
+    "bootstrap": "^4.3.1",
     "breakpoint-sass": "^2.7.1",
-    "jquery-validation": "^1.19.0"
+    "jquery": "^3.3.1",
+    "jquery-mask-plugin": "^1.14.15",
+    "jquery-validation": "^1.19.0",
+    "popper": "^1.0.1",
+    "popper.js": "^1.14.7"
   }
 }

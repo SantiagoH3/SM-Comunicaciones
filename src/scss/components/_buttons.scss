@@ -7,7 +7,7 @@
 
 .btn-nc {
     float: right;
-    margin: 10px 30px;
+    margin: 20px 30px;
     background-color: #0585FB;
     font-weight: bold;
     color: white;
@@ -24,6 +24,20 @@
     color: black;
     background-color: #f8f8f8;
     border: 1px solid #f8f8f8;
-    margin: 10px 30px;
+    margin: 20px 30px;
     outline: none;
+    border: 1px solid #F2F2F2;
+    box-sizing: border-box;
+    border-radius: 20px;
+    height: 40px;
+    width: 120px;
+}
+
+span.filtro {
+    font-size: 19px;
+}
+
+i.fa.fa-filter {
+    color: $filter;
+    font-size: 24px;
 }

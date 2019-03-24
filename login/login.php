@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$password = hash('sha512', $password);
 
 	try {
-		$conexion = new PDO('mysql:host=localhost;dbname=id2300440_vaisoft', 'id2300440_vaisoft', 'vaisoft');
+		$conexion = new PDO('mysql:host=localhost;dbname=id8828298_dbsmcom', 'id8828298_test', '12345');
 	} catch (PDOException $e) {
 		echo "Error:" . $e->getMessage();;
 	}

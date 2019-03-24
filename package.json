@@ -4,8 +4,8 @@
   "description": "Aplicación para SM Comunicaciones para el registro de pagos.",
   "main": "index.js",
   "scripts": {
-    "dev": "parcel ./index.html ./*.html",
-    "build": "parcel build ./index.html ./*.html"
+    "dev": "parcel ./index.php ./*.php",
+    "build": "parcel build ./index.php ./*.php"
   },
   "repository": {
     "type": "git",

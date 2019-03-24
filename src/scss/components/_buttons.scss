@@ -17,6 +17,11 @@
     outline: none;
 }
 
+.btn-sm:hover {
+    transform: scale(1.1);
+    transition: 1s;
+}
+
 .btn-filtro {
     padding: 2px 8px;
     border-radius: 5px;

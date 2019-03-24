@@ -1,10 +1,22 @@
 body {
     input, textarea, select, a { outline: none; }
     background-color: $light-blue;
+
     .modal-content {
-        height: 10%;
-        width: 500px;
+        height: 309px;
+        overflow: hidden;
+        transition: 1.5s;
     }
+
+    .modal-anim {
+        transition: 1.5s;
+    }
+
+    @keyframes modal-in {
+        0% { left: -200% }
+        100% { left: 0% }
+    }
+    
     .login {
 
         .lost-pass {
@@ -42,7 +54,7 @@ body {
 
         .input-group {
             margin:0px auto;
-            width: 75%;
+            width: 1px;
             margin-bottom: 5px;
 
             .form-control{
@@ -78,6 +90,10 @@ body {
                 font-size: 20px;
             }
 
+            input:hover {
+                background-color: white;
+            }
+
             .active-input {
                 color: #e67e22;
             }
@@ -90,7 +106,7 @@ body {
         .btn-login {
             margin-top: 10px;
             width: 40%;
-            height: 40px;
+            height: 42px;
             color: white;
             border: 1px solid #0585FB;
             background-color: #0585FB;
@@ -98,6 +114,8 @@ body {
             font-size: 20px;
             border-radius: 10px;
             overflow-x: hidden;
+            transition: 1s;
+            outline: none;
         }
 
         .container {
@@ -116,7 +134,7 @@ body {
         }
 
         .show {
-            display: block!important;
+            display: block !important;
             background: rgba(56, 56, 56, 0.7);
             padding: 13% 0;
 
@@ -127,4 +145,19 @@ body {
             }
         } 
     }
-} 
+}
+
+.login-start {
+    width: 75% !important;
+    transition: 2s;
+}
+
+.a-btn {
+    text-decoration: none;
+    color: white;
+}
+
+.a-btn:hover {
+    color: white;
+    text-decoration: none;
+}

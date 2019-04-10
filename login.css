@@ -1,0 +1,395 @@
+body {
+  background-color: #E8F1FD;
+}
+body input, body textarea, body select, body a {
+  outline: none;
+}
+body .modal-content {
+  height: 309px;
+  overflow: hidden;
+  transition: 1.5s;
+}
+body .modal-anim {
+  transition: 1.5s;
+}
+@keyframes modal-in {
+  0% {
+    left: -200%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+body .login {
+  font-family: "Poppins";
+  outline: 100px;
+}
+body .login .lost-pass {
+  margin: 0 auto;
+  font-size: 14px;
+}
+body .login input {
+  height: 40px;
+  border-right: 1px solid black;
+  background-color: #f0f0f0;
+  z-index: 0;
+}
+body .login input:focus {
+  background-color: white;
+  outline: 100px;
+  border: 1px solid #0585FB;
+}
+body .login .input-pass {
+  border-bottom: 1px solid black;
+  border-radius: 20px;
+  border-top-right-radius: 0px;
+}
+body .login .input-email {
+  border-top: 1px solid black;
+  border-bottom: 1px solid #0585FB;
+  border-top-right-radius: 20px;
+}
+body .login .input-group {
+  margin: 0px auto;
+  width: 1px;
+  margin-bottom: 5px;
+}
+body .login .input-group .form-control {
+  margin: auto;
+  width: 100%;
+  height: 40px;
+}
+body .login .input-group span {
+  background: #cacaca;
+  border-top: 1px solid black;
+  border-left: 1px solid #0585FB;
+  border-bottom: 1px solid #0585FB;
+  border-top-left-radius: 20px;
+  color: #348ae7;
+  border-bottom-left-radius: 0;
+  font-size: 20px;
+}
+body .login .input-group .span2 {
+  border-top: 1px solid #0585FB;
+  border-bottom: 1px solid black;
+  border-left: 1px solid #0585FB;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 20px;
+}
+body .login .input-group .input-pass {
+  border-top: 1px solid #0585FB;
+}
+body .login .input-group input {
+  font-size: 20px;
+}
+body .login .input-group input:hover {
+  background-color: white;
+}
+body .login .input-group .active-input {
+  color: #e67e22;
+}
+body .login .input-group .active-input-ok {
+  color: #2ecc71;
+}
+body .login .btn-login {
+  margin-top: 10px;
+  width: 40%;
+  height: 42px;
+  color: white;
+  border: 1px solid #0585FB;
+  background-color: #0585FB;
+  box-shadow: -0.5px 2px 4px 1px black;
+  font-size: 20px;
+  border-radius: 10px;
+  overflow-x: hidden;
+  transition: 1s;
+  outline: none;
+}
+body .login .container {
+  display: table;
+}
+body .login .container .welcome {
+  text-align: center;
+  font-size: 72px;
+  color: #000000;
+  display: table-cell;
+  vertical-align: middle;
+  text-shadow: 0px 4px 4px rgba(90, 90, 90, 0.66);
+  color: blue;
+  padding-top: 100px;
+}
+body .login .show {
+  display: block !important;
+  background: rgba(56, 56, 56, 0.7);
+  padding: 13% 0;
+}
+body .login .show h4 {
+  font-size: 30px;
+  font-weight: bold;
+  text-shadow: 1px 1px #818181;
+}
+
+.login-start {
+  width: 75% !important;
+  transition: 2s;
+}
+
+.a-btn {
+  text-decoration: none;
+  color: white;
+}
+
+.a-btn:hover {
+  color: white;
+  text-decoration: none;
+}
+
+
+/* cliente */
+body {
+  font-family: 'Poppins';
+  background-color: #e8f1fd;
+}
+body .nom {
+  text-align: left;
+}
+body .btn-cerrar {
+  background-color: #0585fb;
+  border: 1px solid #0585fb;
+}
+body .btn-guardar {
+  background-color: #2ecc71;
+  border: 1px solid #2ecc71;
+}
+body .btn-mnc {
+  margin: 0 auto;
+  width: 30%;
+  height: 40px;
+  color: white;
+  box-shadow: -0.5px 2px 4px 1px black;
+  font-size: 20px;
+  border-radius: 10px;
+  overflow-x: hidden;
+  outline: none;
+}
+body .modal-ec {
+  margin: 13% 0;
+}
+body .modal-ec .modal-content {
+  border: 1px solid black;
+  border-radius: 35px;
+}
+body .modal-ec .modal-body h2 {
+  font-size: 18px;
+  text-align: center;
+}
+body .modal-ec .modal-body .buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 17px;
+  font-weight: bold;
+}
+body .modal-ec .modal-body .buttons button {
+  width: 130px;
+  height: 40px;
+  margin-top: 15px;
+  border-radius: 25px;
+  outline: none;
+}
+body .modal-ec .modal-body .buttons .si-bc {
+  margin-right: 5px;
+  background: #84ec7b;
+  border: 1px solid #67a562;
+}
+body .modal-ec .modal-body .buttons .no-bc {
+  margin-left: 5px;
+  background: #fc9999;
+  border: 1px solid #f00;
+}
+
+/* morosos */
+body {
+  font-family: 'Poppins';
+  background-color: #2d70b9;
+}
+table thead {
+  text-align: center;
+  border-bottom-style: groove;
+}
+tbody tr:hover {
+  border-top: 3px;
+  background-color: #d9d9d9;
+}
+div .table-footer .total {
+  margin: auto;
+  padding-top: 15px;
+  width: 30%;
+  height: 40px;
+  color: white;
+  font-size: 20px;
+  border-radius: 10px;
+  overflow-x: hidden;
+  outline: none;
+}
+
+
+/* table */
+.table-container {
+  width: 80%;
+  margin: 100px auto;
+}
+.table-container .table-header {
+  height: 76px;
+  background-color: #639eca;
+  border-top-right-radius: 20px;
+  border-top-left-radius: 20px;
+}
+.table-container .table-footer {
+  height: 76px;
+  background-color: #639eca;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.table-container table {
+  width: 100%;
+  background-color: white;
+  margin-top: 0;
+}
+.table-container table thead th, .table-container table thead td {
+  height: 60px;
+}
+.table-container table tbody {
+  font-size: 15px;
+  border-top: 1px solid #d1d1d1;
+}
+.table-container table tbody th, .table-container table tbody td {
+  width: auto;
+  text-align: center;
+  height: 60px;
+}
+.table-container table tbody .edit {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  outline: none;
+}
+.table-container table tbody .delete {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  outline: none;
+}
+.table-container table tbody .nom {
+  width: 270px;
+  text-align: left;
+}
+.table-container table tbody th {
+  font-weight: bold;
+  border-top: 1px solid #e6e6e6;
+}
+.table-container table tbody td {
+  border-top: 1px solid #e6e6e6;
+}
+.table-container table .hcenter {
+  color: #000;
+  text-align: center;
+}
+
+/* buttons */
+
+.btn-login-form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  outline: none;
+}
+.btn-nc {
+  float: right;
+  margin: 20px 30px;
+  background-color: #0585fb;
+  font-weight: bold;
+  color: white;
+  border: 1px solid white;
+  border-radius: 25px;
+  box-shadow: 1px 3px 5px black;
+  outline: none;
+}
+.btn-sm:hover {
+  transform: scale(1.1);
+  transition: 1s;
+}
+.btn-filtro {
+  padding: 2px 8px;
+  border-radius: 5px;
+  float: right;
+  color: black;
+  background-color: #f8f8f8;
+  border: 1px solid #f8f8f8;
+  margin: 20px 30px;
+  outline: none;
+  border: 1px solid #f2f2f2;
+  box-sizing: border-box;
+  border-radius: 20px;
+  height: 40px;
+  width: 120px;
+}
+span.filtro {
+  font-size: 19px;
+}
+i.fa.fa-filter {
+  color: #6994c3;
+  font-size: 24px;
+}
+
+/* nuevo form */
+.input-nc {
+  display: block;
+  padding: 13px;  
+  width: 85%;
+  font-size: 15px;
+  margin: 0 auto;
+  outline: none;
+}
+
+.border-nc {
+  border-left: 1px solid rgb(0, 0, 0);
+  border-right: 1px solid rgb(0, 0, 0);
+  border-top: 1px solid #0585FB;
+  border-bottom: 1px solid #0585FB;
+  height: 35px;   
+}
+
+.nc-nombre { 
+  border-left: 1px solid rgb(0, 0, 0);
+  border-top: 1px solid rgb(0, 0, 0);
+  border-right: 1px solid rgb(0, 0, 0);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom: 1px solid #0585FB; 
+  height: 30px;
+}
+
+.nc-ip {
+  border-left: 1px solid rgb(0, 0, 0);
+  border-bottom: 1px solid rgb(0, 0, 0);
+  border-top: 1px solid #0585FB;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.np-border {
+  border-left: 1px solid rgb(0, 0, 0);
+  border-bottom: 1px solid rgb(0, 0, 0);
+  border-right: 1px solid rgb(0, 0, 0);
+  border-top: 1px solid #0585FB;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  height: 35px;
+}
+
+.modal-title {
+  margin: 0 auto;
+}
+
+  

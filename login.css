@@ -145,6 +145,15 @@ body .login .show h4 {
 }
 
 
+@media only screen and (min-width: 991px) {
+  .logout{
+    position: absolute;
+    right: 10px;
+  
+  }
+}
+
+
 /* cliente */
 body {
   font-family: 'Poppins';

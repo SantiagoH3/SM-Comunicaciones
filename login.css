@@ -344,6 +344,11 @@ th, td { min-width: 50px; }
   outline: none;
 }
 
+.btn-cerrar:focus, .btn-guardar:focus, .btn-filtro:focus, .btn-login:focus {
+  transition: all 0.5s ease-in-out;
+  transform: scale(0.9);
+}
+
 .btn-sm:hover {
   transform: scale(1.1);
   transition: 1s;

@@ -73,7 +73,7 @@
                                     '.$row[1].'
                                 </td>
                                 <td>
-                                    <button class="edit"><i class="fas fa-pencil-alt"></i></button>
+                                    <button class="edit" data-toggle="modal" data-target="#modal-update'.$row[0].'"><i class="fas fa-pencil-alt"></i></button>
                                     <button class="delete" data-toggle="modal" data-target="#delete'.$row[0].'"><i class="far fa-trash-alt"></i></button>
                                 </td>
                                 <!-- Modal eliminar cleinte -->
@@ -87,6 +87,41 @@
                                                     <button class="si-bc eliminar" data-id="'.$row[0].'">Si</button>
                                                     <button class="no-bc" data-dismiss="modal">No</button>
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal -->
+                                <div class="modal fade" id="modal-update'.$row[0].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">			
+                                                <h4 class="modal-title">Modificar Cliente</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form id="update-customer" action="updatecliente.php" method="post">
+                                                    <div class="form-group">
+                                                        <input value="'.$row[1].'" id="nombre" type="text" class="input-nc nc-nombre" name="nombre" placeholder="Nombre(s)" required="required">		
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input value="'.$row[3].'" id="localidad" type="text" class="input-nc nc-localidad border-nc" name="localidad" placeholder="Localidad" required="required">		
+                                                    </div>
+                                                    <!-- <div class="form-group">
+                                                        <input type="text" class="input-nc nc-fechaderegistro border-nc" name="fecharegistro" placeholder="Fecha de Registro" required="required">		
+                                                    </div> -->
+                                                    <div class="form-group">
+                                                        <input value="'.$row[2].'" id="telefono" type="text" class="input-nc nc-telefono border-nc" name="telefono" placeholder="Número Telefónico" required="required">		
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input value="'.$row[4].'" id="ip" type="text" class="input-nc np-border" name="ip" placeholder="Dirección IP" required="required">
+                                                        <input type="hidden" name="id" value="'.$row[0].'">	
+                                                    </div> 
+                                                    <div class="modal-footer">
+                                                        <!-- <button type="button" id="limpiar-nc" class="btn-mnc btn-limpiar">Limpiar</button> -->
+                                                        <button type="button" class="btn-mnc btn-cerrar" data-dismiss="modal">Cerrar</button>
+                                                        <button type="submit" class="btn-mnc btn-guardar" data-id="'.$row[0].'">Modificar</button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>

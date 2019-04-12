@@ -253,13 +253,13 @@ div .table-footer .total {
 }
 .table-container .table-header {
   height: 76px;
-  background-color: #639eca;
+  background-color: #607D8B;
   border-top-right-radius: 20px;
   border-top-left-radius: 20px;
 }
 .table-container .table-footer {
   height: 76px;
-  background-color: #639eca;
+  background-color: #607D8B;
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }

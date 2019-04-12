@@ -81,6 +81,7 @@
                                     <div class="modal-content">
                                         <div class="modal-body">
                                             <h2>¿Seguro que quieres eliminar este Cliente?</h2>
+                                            <p class="datos-cliente">N: '.$row[1].'&nbsp;&nbsp;&nbsp;&nbsp;IP: '.$row[4].'</p>
                                             <div class="buttons">
                                                 <button class="si-bc eliminar" data-id="'.$row[0].'">Si</button>
                                                 <button class="no-bc" data-dismiss="modal">No</button>

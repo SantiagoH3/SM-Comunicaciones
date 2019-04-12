@@ -33,7 +33,7 @@
           <span class="welcome">BIENVENIDO</span>
       </div>
       <div id="modal-show" class="modal fade in show">
-        <div class="modal-dialog modal-login">
+        <div class="modal-dialog modal-dialog-centered modal-login">
           <div id="modal" class="modal-content">
             <div class="modal-header">			
                 <h4 class="modal-title">SM Comunicaciones</h4>

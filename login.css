@@ -178,7 +178,6 @@ body .btn-mnc {
   width: 30%;
   height: 40px;
   color: white;
-  box-shadow: -0.5px 2px 4px 1px black;
   font-size: 20px;
   border-radius: 10px;
   overflow-x: hidden;
@@ -335,11 +334,16 @@ th, td { min-width: 50px; }
   background-color: #0585fb;
   font-weight: bold;
   color: white;
-  border: 1px solid white;
   border-radius: 25px;
-  box-shadow: 1px 3px 5px black;
+  outline: none;
+  border: 0;
+  padding: 10px;
+}
+
+.btn-nc:focus {
   outline: none;
 }
+
 .btn-sm:hover {
   transform: scale(1.1);
   transition: 1s;
@@ -353,7 +357,6 @@ th, td { min-width: 50px; }
   border: 1px solid #f8f8f8;
   margin: 20px 30px;
   outline: none;
-  border: 1px solid #f2f2f2;
   box-sizing: border-box;
   border-radius: 20px;
   height: 40px;

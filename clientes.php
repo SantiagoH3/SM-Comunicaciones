@@ -1,5 +1,32 @@
 <?php
     include "DBconection.php";
+
+    $sql = 'SELECT * FROM clientes';
+    $sentencia = $pdo->prepare($sql);
+    $sentencia->execute();
+    $res = $sentencia->fetchAll();
+
+    $total_cleintes = $sentencia->rowCount();
+    $clientes_x_pagina = 10;
+    $paginas = $total_cleintes/$clientes_x_pagina;
+    $paginas = ceil($paginas);
+
+    if (!$_GET){
+        header('Location:clientes.php?pagina=1');
+    }
+
+    if ($_GET['pagina']>$paginas || $_GET['pagina']<1){
+        header('Location:clientes.php?pagina=1');
+    }
+
+    $iniciar = ($_GET['pagina']-1)*$clientes_x_pagina;
+    $sql_clientes = 'SELECT * FROM clientes LIMIT :iniciar,:clientes';
+    $sentencia_clientes = $pdo->prepare($sql_clientes);
+    $sentencia_clientes->bindParam(':iniciar', $iniciar, PDO::PARAM_INT);
+    $sentencia_clientes->bindParam(':clientes', $clientes_x_pagina, PDO::PARAM_INT);
+    $sentencia_clientes->execute();
+
+    $resultado_clientes = $sentencia_clientes->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,8 +83,7 @@
                     </thead>
                     <tbody>
                         <?php 
-                            $resultado=mysqli_query($conexion,"select * from clientes");
-                            while($row=mysqli_fetch_array($resultado)){
+                            foreach($resultado_clientes as $row){
                             echo '
                             <tr>
                                 <th scope="row">
@@ -133,8 +159,36 @@
                     </tbody>
                 </table>
             </div>
-            <div class="table-footer">
-                <button class="btn-nc" data-toggle="modal" data-target="#exampleModal" type="submit">Nuevo Cliente</button>
+            <div class="row table-footer">
+                <div class="paginacion col-md-6 col-lg-6">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+
+                            <li class="page-item <?php echo $_GET['pagina']<=1? 'disabled': '' ?>">
+                                <a class="page-link" href="clientes.php?pagina=<?php echo $_GET['pagina']-1 ?>">
+                                    Previous
+                                </a>
+                            </li>
+                            
+                            <?php for($i=0;$i<$paginas;$i++): ?>
+                                <li class="page-item <?php echo $_GET['pagina']==$i+1 ? 'active' : '' ?>">
+                                    <a class="page-link" href="clientes.php?pagina=<?php echo $i+1 ?>">
+                                        <?php echo $i+1 ?>
+                                    </a>
+                                </li>
+                            <?php endfor ?>
+
+                            <li class="page-item <?php echo $_GET['pagina']>=$paginas? 'disabled': '' ?>">
+                                <a class="page-link" href="clientes.php?pagina=<?php echo $_GET['pagina']+1 ?>">
+                                    Next
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="nuevo-cliente col-md-6 col-lg-6">
+                    <button class="btn-nc" data-toggle="modal" data-target="#exampleModal" type="submit">Nuevo Cliente</button>
+                </div>
             </div>
         </div>
         <!-- Modal -->

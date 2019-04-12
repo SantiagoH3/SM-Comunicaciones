@@ -6,6 +6,7 @@ body input, body textarea, body select, body a {
 }
 body .modal-content {
   overflow: hidden;
+  border-radius: 25px;
   transition: 1.5s;
 }
 body .modal-anim {
@@ -152,7 +153,6 @@ body .login .show h4 {
   }
 }
 
-
 /* cliente */
 body {
   font-family: 'Poppins';
@@ -246,6 +246,10 @@ div .table-footer .total {
 
 
 /* table */
+.table-footer {
+  margin-right: 0px;
+  margin-left: 0px;
+}
 .table-container {
   width: 80%;
   margin: 100px auto;
@@ -319,6 +323,11 @@ div .table-footer .total {
 }
 
 th, td { min-width: 50px; }
+
+.paginacion {
+  padding-top: 20px;
+  padding-left: 20px;
+}
 
 /* buttons */
 

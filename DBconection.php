@@ -4,9 +4,17 @@ $user = 'root';
 $pass = '';
 $server = 'localhost';
 $DB = 'SMcomunicacion';
+$link = "mysql:host=$server;dbname=$DB";
 
-	$conexion = mysqli_connect($server, $user, $pass, $DB);
-	mysqli_select_db($conexion, $DB);
+$conexion = mysqli_connect($server, $user, $pass, $DB);
+mysqli_select_db($conexion, $DB);
+  
+try{
+  $pdo = new PDO($link,$user,$pass);
+}catch (PDOException $e) {
+  print "Error! ". $e->getMesssage() ."<br/>";
+  die();
+}
 
 ?>
 

@@ -304,6 +304,19 @@ div .table-footer .total {
   text-align: center;
 }
 
+.datos-cliente {
+  text-align:center;
+  font-size: 10px;
+}
+
+.table-div {
+  width: 100%;
+  overflow: hidden;
+  overflow-x: scroll;
+}
+
+th, td { min-width: 50px; }
+
 /* buttons */
 
 .btn-login-form {
@@ -415,10 +428,5 @@ i.fa.fa-filter {
 
 .fail {
   color: red;
-}
-
-.datos-cliente {
-  text-align:center;
-  font-size: 10px;
 }
   

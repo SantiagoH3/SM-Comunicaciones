@@ -43,59 +43,61 @@
             <div class="table-header">
                 <button class="btn-filtro" type="image" value="Filtro" src="../src/assets/filter.svg"><i class="fa fa-filter"></i><span class="filtro">&nbsp;&nbsp;Filtro</span></button>
             </div>
-            <table class="table-sm">
-                <thead>
-                    <tr>
-                        <th class="hcenter" scope="col">No.</th>
-                        <th class="hcenter" scope="col">IP</th>
-                        <th class="hcenter" scope="col">Localidad</th>
-                        <th class="nom" scope="col">Nombre</th>
-                        <th class="hcenter" scope="col">Acciones</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php 
-                        $resultado=mysqli_query($conexion,"select * from clientes");
-                        while($row=mysqli_fetch_array($resultado)){
-                        echo '
+            <div class="table-div">
+                <table>
+                    <thead>
                         <tr>
-                            <th scope="row">
-                                '.$row[0].'
-                            </th>
-                            <td>
-                                '.$row[4].'
-                            </td>
-                            <td>
-                                '.$row[3].'
-                            </td>
-                            <td class="nom">
-                                '.$row[1].'
-                            </td>
-                            <td>
-                                <button class="edit"><i class="fas fa-pencil-alt"></i></button>
-                                <button class="delete" data-toggle="modal" data-target="#delete'.$row[0].'"><i class="far fa-trash-alt"></i></button>
-                            </td>
-                            <!-- Modal eliminar cleinte -->
-                            <div class="modal fade modal-ec" id="delete'.$row[0].'" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-body">
-                                            <h2>¿Seguro que quieres eliminar este Cliente?</h2>
-                                            <p class="datos-cliente">N: '.$row[1].'&nbsp;&nbsp;&nbsp;&nbsp;IP: '.$row[4].'</p>
-                                            <div class="buttons">
-                                                <button class="si-bc eliminar" data-id="'.$row[0].'">Si</button>
-                                                <button class="no-bc" data-dismiss="modal">No</button>
+                            <th class="hcenter" scope="col">No.</th>
+                            <th class="hcenter" scope="col">IP</th>
+                            <th class="hcenter" scope="col">Localidad</th>
+                            <th class="nom" scope="col">Nombre</th>
+                            <th class="hcenter" scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php 
+                            $resultado=mysqli_query($conexion,"select * from clientes");
+                            while($row=mysqli_fetch_array($resultado)){
+                            echo '
+                            <tr>
+                                <th scope="row">
+                                    '.$row[0].'
+                                </th>
+                                <td>
+                                    '.$row[4].'
+                                </td>
+                                <td>
+                                    '.$row[3].'
+                                </td>
+                                <td class="nom">
+                                    '.$row[1].'
+                                </td>
+                                <td>
+                                    <button class="edit"><i class="fas fa-pencil-alt"></i></button>
+                                    <button class="delete" data-toggle="modal" data-target="#delete'.$row[0].'"><i class="far fa-trash-alt"></i></button>
+                                </td>
+                                <!-- Modal eliminar cleinte -->
+                                <div class="modal fade modal-ec" id="delete'.$row[0].'" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <h2>¿Seguro que quieres eliminar este Cliente?</h2>
+                                                <p class="datos-cliente">N: '.$row[1].'&nbsp;&nbsp;&nbsp;&nbsp;IP: '.$row[4].'</p>
+                                                <div class="buttons">
+                                                    <button class="si-bc eliminar" data-id="'.$row[0].'">Si</button>
+                                                    <button class="no-bc" data-dismiss="modal">No</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </tr>
-                        ';
-                        }
-                    ?>
-                </tbody>
-            </table>
+                            </tr>
+                            ';
+                            }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
             <div class="table-footer">
                 <button class="btn-nc" data-toggle="modal" data-target="#exampleModal" type="submit">Nuevo Cliente</button>
             </div>

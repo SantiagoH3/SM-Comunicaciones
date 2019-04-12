@@ -37,7 +37,7 @@
             </ul>
         </div>
       </nav>
-<body style='font-family: poppins; background-color: #E8F1FD;'>
+<body style='font-family: poppins; background-color: #0c2461;'>
     <div class="">
         <div class="table-container">
             <div class="table-header">

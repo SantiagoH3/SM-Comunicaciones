@@ -21,6 +21,10 @@
     .welcome {
       font-family: 'Holtwood One SC', serif;
     }
+
+    .modal-title {
+      text-align: center;
+    }
   </style>
 </head>
   <body> 

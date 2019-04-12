@@ -12,6 +12,16 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Holtwood+One+SC" rel="stylesheet">
+  <style>
+    body {
+      background: black;
+    }
+
+    .welcome {
+      font-family: 'Holtwood One SC', serif;
+    }
+  </style>
 </head>
   <body> 
     <div class="login">

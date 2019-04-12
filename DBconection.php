@@ -21,9 +21,9 @@ $DB = 'SMcomunicacion';
 <body>
   <?php
     if(!$conexion){
-      echo '<p class="conexion-info fail">Conexion: FAIL</p>';
+      echo '<p class="conexion-info fail">Conexion: FAIL </p>';
     } else {
-      echo '<p class="conexion-info">Conexion: OK</p>';
+      echo '<p class="conexion-info">Conexion: OK <img class="ok-luz" src="COK.gif"></p>';
     }
   ?>
 </body>

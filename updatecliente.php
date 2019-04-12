@@ -6,4 +6,5 @@ $sql = "UPDATE clientes
         WHERE id_cliente='".$_POST['id']."'";
 
 mysqli_query($conexion,$sql);
+header("Location: clientes.php");
 ?>

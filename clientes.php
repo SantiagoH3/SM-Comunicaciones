@@ -112,21 +112,22 @@
                     <div class="modal-body">
                         <form action="altacliente.php" method="post">
                             <div class="form-group">
-                                <input type="text" class="input-nc nc-nombre" name="nombre" placeholder="Nombre(s)" required="required">		
+                                <input id="nombre" type="text" class="input-nc nc-nombre" name="nombre" placeholder="Nombre(s)" required="required">		
                             </div>
                             <div class="form-group">
-                                <input type="text" class="input-nc nc-localidad border-nc" name="localidad" placeholder="Localidad" required="required">		
+                                <input id="localidad" type="text" class="input-nc nc-localidad border-nc" name="localidad" placeholder="Localidad" required="required">		
                             </div>
                             <!-- <div class="form-group">
                                 <input type="text" class="input-nc nc-fechaderegistro border-nc" name="fecharegistro" placeholder="Fecha de Registro" required="required">		
                             </div> -->
                             <div class="form-group">
-                                <input type="text" class="input-nc nc-telefono border-nc" name="telefono" placeholder="Número Telefónico" required="required">		
+                                <input id="telefono" type="text" class="input-nc nc-telefono border-nc" name="telefono" placeholder="Número Telefónico" required="required">		
                             </div>
                             <div class="form-group">
-                                <input type="text" class="input-nc np-border" name="ip" placeholder="Dirección IP" required="required">		
+                                <input id="ip" type="text" class="input-nc np-border" name="ip" placeholder="Dirección IP" required="required">		
                             </div> 
                             <div class="modal-footer">
+                                <button type="button" id="limpiar-nc" class="btn-mnc btn-limpiar">Limpiar</button>
                                 <button type="button" class="btn-mnc btn-cerrar" data-dismiss="modal">Cerrar</button>
                                 <button type="submit" class="btn-mnc btn-guardar">Guardar</button>
                             </div>

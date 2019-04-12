@@ -22,4 +22,10 @@ $(document).ready(function(){
 	// 		alert(e);
 	// 	});
 	// });
+	$('#limpiar-nc').click(function() {
+		$('#nombre').val('');
+		$('#localidad').val('');
+		$('#telefono').val('');
+		$('#ip').val('');
+	});
 });

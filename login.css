@@ -162,8 +162,12 @@ body .nom {
   text-align: left;
 }
 body .btn-cerrar {
-  background-color: #0585fb;
-  border: 1px solid #0585fb;
+  background-color: #e74c3c;
+  border: 1px solid #c0392b;
+}
+body .btn-limpiar {
+  background-color: #4a69bd;
+  border: 1px solid #1e3799;
 }
 body .btn-guardar {
   background-color: #2ecc71;

@@ -1,9 +1,9 @@
 <?php
 
-$user = 'id8828298_test';
-$pass = '12345';
+$user = 'root';
+$pass = '';
 $server = 'localhost';
-$DB = 'id8828298_dbsmcom';
+$DB = 'SMcomunicacion';
 
 	$conexion = mysqli_connect($server, $user, $pass, $DB);
 	mysqli_select_db($conexion, $DB);
@@ -20,11 +20,11 @@ $DB = 'id8828298_dbsmcom';
 </head>
 <body>
   <?php
-  if(!$conexion){
-		echo '<h1>Error en la conexión</h1>';
-	} else {
-    echo '<h1>Todo bien krnal</h1>';
-  }
+    if(!$conexion){
+      echo '<p class="conexion-info fail">Conexion: FAIL</p>';
+    } else {
+      echo '<p class="conexion-info">Conexion: OK</p>';
+    }
   ?>
 </body>
 </html>

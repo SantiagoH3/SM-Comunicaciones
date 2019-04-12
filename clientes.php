@@ -1,3 +1,6 @@
+<?php
+    include "DBconection.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,28 +16,27 @@
     <link rel="stylesheet" href="login.css">
 </head>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand logobrand" href="clientes.php">SM Comunicaciones</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-            <li class="nav-item active menu">
-                <a class="nav-link" href="clientes.php">Clientes <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item menu">
-                <a class="nav-link" href="pagos.php">Pagos</a>
-            </li>
-            <li class="nav-item menu">
-                <a class="nav-link" href="morosos.php">Morosos</a>
-            </li>
-            <li class="nav-item menu logout">
-                <a class="nav-link" href="#">Log Out</a>
-            </li>
-            </ul>
-        </div>
-      </nav>
-</body>
+    <a class="navbar-brand logobrand" href="clientes.php">SM Comunicaciones</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+        <li class="nav-item active menu">
+            <a class="nav-link" href="clientes.php">Clientes <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item menu">
+            <a class="nav-link" href="pagos.php">Pagos</a>
+        </li>
+        <li class="nav-item menu">
+            <a class="nav-link" href="morosos.php">Morosos</a>
+        </li>
+        <li class="nav-item menu logout">
+            <a class="nav-link" href="#">Log Out</a>
+        </li>
+        </ul>
+    </div>
+</nav>
 <body style='font-family: poppins; background-color: #E8F1FD;'>
     <div class="contain">
         <div class="table-container">
@@ -52,46 +54,45 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>192.168.10.2</td>
-                        <td>San Alexis</td>
-                        <td class="nom">José Curiel</td>
-                        <td>
-                            <button class="edit"><i class="fas fa-pencil-alt"></i></button>
-                            <button class="delete" data-toggle="modal" data-target="#delete"><i class="far fa-trash-alt"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>192.168.10.3</td>
-                        <td>San Luis</td>
-                        <td class="nom">Luis Alvarez</td>
-                        <td>
-                            <button class="edit"><i class="fas fa-pencil-alt"></i></button>
-                            <button class="delete" data-toggle="modal" data-target="#delete"><i class="far fa-trash-alt"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>192.168.10.4</td>
-                        <td>San Antonio</td>
-                        <td class="nom">Santiago Hernández </td>
-                        <td>
-                            <button class="edit"><i class="fas fa-pencil-alt"></i></button>
-                            <button class="delete" data-toggle="modal" data-target="#delete"><i class="far fa-trash-alt"></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row">4</th>
-                        <td>192.168.10.5</td>
-                        <td>San Diego</td>
-                        <td class="nom">Diego Jimenez</td>
-                        <td>
-                            <button class="edit"><i class="fas fa-pencil-alt"></i></button>
-                            <button class="delete" data-toggle="modal" data-target="#delete"><i class="far fa-trash-alt"></i></button>
-                        </td>
-                    </tr>
+                    <?php 
+                        $resultado=mysqli_query($conexion,"select * from clientes");
+                        while($row=mysqli_fetch_array($resultado)){
+                        echo '
+                        <tr>
+                            <th scope="row">
+                                '.$row[0].'
+                            </th>
+                            <td>
+                                '.$row[4].'
+                            </td>
+                            <td>
+                                '.$row[3].'
+                            </td>
+                            <td class="nom">
+                                '.$row[1].'
+                            </td>
+                            <td>
+                                <button class="edit"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="delete" data-toggle="modal" data-target="#delete'.$row[0].'"><i class="far fa-trash-alt"></i></button>
+                            </td>
+                            <!-- Modal eliminar cleinte -->
+                            <div class="modal fade modal-ec" id="delete'.$row[0].'" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-body">
+                                            <h2>¿Seguro que quieres eliminar este Cliente?</h2>
+                                            <div class="buttons">
+                                                <button class="si-bc eliminar" data-id="'.$row[0].'">Si</button>
+                                                <button class="no-bc" data-dismiss="modal">No</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </tr>
+                        ';
+                        }
+                    ?>
                 </tbody>
             </table>
             <div class="table-footer">
@@ -106,16 +107,16 @@
                         <h4 class="modal-title">Nuevo Cliente</h4>
                     </div>
                     <div class="modal-body">
-                        <form action="#" method="post">
+                        <form action="altacliente.php" method="post">
                             <div class="form-group">
                                 <input type="text" class="input-nc nc-nombre" name="nombre" placeholder="Nombre(s)" required="required">		
                             </div>
                             <div class="form-group">
                                 <input type="text" class="input-nc nc-localidad border-nc" name="localidad" placeholder="Localidad" required="required">		
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <input type="text" class="input-nc nc-fechaderegistro border-nc" name="fecharegistro" placeholder="Fecha de Registro" required="required">		
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <input type="text" class="input-nc nc-telefono border-nc" name="telefono" placeholder="Número Telefónico" required="required">		
                             </div>
@@ -124,27 +125,15 @@
                             </div> 
                             <div class="modal-footer">
                                 <button type="button" class="btn-mnc btn-cerrar" data-dismiss="modal">Cerrar</button>
-                                <button type="button" class="btn-mnc btn-guardar">Guardar</button>
+                                <button type="submit" class="btn-mnc btn-guardar">Guardar</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Modal eliminar cleinte -->
-        <div class="modal fade modal-ec" id="delete" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <h2>¿Seguro que quieres eliminar este Cliente?</h2>
-                        <div class="buttons">
-                            <button class="si-bc">Si</button>
-                            <button class="no-bc" data-dismiss="modal">No</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="eliminar-cliente.js"></script>
 </body>
 </html>

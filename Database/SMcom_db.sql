@@ -23,11 +23,12 @@ USE `SMcomunicacion`;
 --
 
 CREATE TABLE `clientes` (
-  `id_cliente` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(30) NOT NULL,
   `tel` varchar(15) NOT NULL,
   `localidad` varchar(50) NOT NULL,
-  `dir_ip` varchar(20) NOT NULL
+  `dir_ip` varchar(20) NOT NULL,
+  PRIMARY KEY (id_cliente)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------

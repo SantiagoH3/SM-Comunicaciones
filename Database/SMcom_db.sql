@@ -28,6 +28,7 @@ CREATE TABLE `clientes` (
   `tel` varchar(15) NOT NULL,
   `localidad` varchar(50) NOT NULL,
   `dir_ip` varchar(20) NOT NULL,
+  `fecha-registro` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id_cliente)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

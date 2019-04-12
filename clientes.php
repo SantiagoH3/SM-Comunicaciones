@@ -103,7 +103,7 @@
             </div>
         </div>
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">			
@@ -127,7 +127,7 @@
                                 <input id="ip" type="text" class="input-nc np-border" name="ip" placeholder="Dirección IP" required="required">		
                             </div> 
                             <div class="modal-footer">
-                                <button type="button" id="limpiar-nc" class="btn-mnc btn-limpiar">Limpiar</button>
+                                <!-- <button type="button" id="limpiar-nc" class="btn-mnc btn-limpiar">Limpiar</button> -->
                                 <button type="button" class="btn-mnc btn-cerrar" data-dismiss="modal">Cerrar</button>
                                 <button type="submit" class="btn-mnc btn-guardar">Guardar</button>
                             </div>

@@ -2,7 +2,7 @@
 include ("DBconection.php");
 if(!isset($_POST['nombre']) &&  !isset($_POST['localidad']) && !isset($_POST['telefono']) && !isset($_POST['ip'])){
   header("Location: clientes.php");
-}else{	
+} else {	
   //Creamos el cleinte
   $nombre=$_POST['nombre'];
   $localidad=$_POST['localidad'];

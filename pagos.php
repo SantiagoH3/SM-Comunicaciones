@@ -1,5 +1,32 @@
 <?php
     include "DBconection.php";
+
+    $sql = 'SELECT * FROM pagos';
+    $sentencia = $pdo->prepare($sql);
+    $sentencia->execute();
+    $res = $sentencia->fetchAll();
+
+    $total_pagos = $sentencia->rowCount();
+    $pagos_x_pagina = 10;
+    $paginas = $total_pagos/$pagos_x_pagina;
+    $paginas = ceil($paginas);
+
+    if (!$_GET){
+        header('Location:pagos.php?pagina=1');
+    }
+
+    if ($_GET['pagina']>$paginas || $_GET['pagina']<1){
+        header('Location:pagos.php?pagina=1');
+    }
+
+    $iniciar = ($_GET['pagina']-1)*$pagos_x_pagina;
+    $sql_pagos = 'SELECT * FROM pagos LIMIT :iniciar,:pagos';
+    $sentencia_pagos = $pdo->prepare($sql_pagos);
+    $sentencia_pagos->bindParam(':iniciar', $iniciar, PDO::PARAM_INT);
+    $sentencia_pagos->bindParam(':pagos', $pagos_x_pagina, PDO::PARAM_INT);
+    $sentencia_pagos->execute();
+
+    $resultado_pagos = $sentencia_pagos->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,53 +65,115 @@
         </div>
       </nav>
 <body style='font-family: poppins; background-color: #0c2461;'>
+    <div class="table-container">
+        <div class="table-header">
+            <button class="btn-filtro" type="image" value="Filtro" src="../src/assets/filter.svg"><i class="fa fa-filter"></i><span class="filtro">&nbsp;&nbsp;Filtro</span></button>
+        </div>
+            <table class="table-sm">
+                <thead>
+                    <tr>
+                    <th class="hcenter" scope="col">No.</th>
+                    <th class="hcenter" scope="col">Localidad</th>
+                    <th class="hcenter" scope="col">Nombre</th>
+                    <th class="hcenter" scope="col">Monto</th>
+                    <th class="hcenter" scope="col">IP</th>
+                    <th class="hcenter" scope="col">Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php 
+                            foreach($resultado_pagos as $row){
+                                $resultado = mysqli_query($conexion,'SELECT * FROM clientes WHERE id_cliente ='.$row[1]);
+                                while($dato = mysqli_fetch_array($resultado)){
+                            echo '
+                        <tr>
+                            <th scope="row">
+                                '.$row[0].'
+                            </th>
+                            <td>
+                                '.$dato["localidad"].'
+                            </td>
+                            <td>
+                                '.$dato["nombre"].'
+                            </td>
+                            <td>
+                                $ '.$row[3].'
+                            </td>
+                            <td>
+                                '.$dato["dir_ip"].'
+                            </td>
+                            <td>
+                                '.$row[4].'
+                            </td>
+                        </tr>
+                        ';
+                        }
+                    }
+                    ?>
+                </tbody>
+            </table>
+            <div class="row table-footer">
+                <div class="paginacion col-md-6 col-lg-6">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
 
-        <div class="table-container">
-                <div class="table-header">
-                    <button class="btn-filtro" type="image" value="Filtro" src="../src/assets/filter.svg"><i class="fa fa-filter"></i><span class="filtro">&nbsp;&nbsp;Filtro</span></button>
+                            <li class="page-item <?php echo $_GET['pagina']<=1? 'disabled': '' ?>">
+                                <a class="page-link" href="pagos.php?pagina=<?php echo $_GET['pagina']-1 ?>">
+                                    Previous
+                                </a>
+                            </li>
+                            
+                            <?php for($i=0;$i<$paginas;$i++): ?>
+                                <li class="page-item <?php echo $_GET['pagina']==$i+1 ? 'active' : '' ?>">
+                                    <a class="page-link" href="pagos.php?pagina=<?php echo $i+1 ?>">
+                                        <?php echo $i+1 ?>
+                                    </a>
+                                </li>
+                            <?php endfor ?>
+
+                            <li class="page-item <?php echo $_GET['pagina']>=$paginas? 'disabled': '' ?>">
+                                <a class="page-link" href="pagos.php?pagina=<?php echo $_GET['pagina']+1 ?>">
+                                    Next
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
-                <table class="table-sm">
-                    <thead>
-                        <tr>
-                        <th class="hcenter" scope="col">No.</th>
-                        <th class="hcenter" scope="col">Localidad</th>
-                        <th class="hcenter" scope="col">Nombre</th>
-                        <th class="hcenter" scope="col">Monto</th>
-                        <th class="hcenter" scope="col">IP</th>
-                        <th class="hcenter" scope="col">Fecha</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>San Alexis</td>
-                            <td>Alexis</td>
-                            <td>$ 12,000.00</td>
-                            <td>192.168.10.2</td>
-                            <td>15 / 04 / 2015</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>San Luis</td>
-                            <td>Luis</td>
-                            <td>$ 15,000.00</td>
-                            <td>192.168.10.1</td>
-                            <td>15 / 06 / 2016</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>San Tiago</td>
-                            <td>Santiago Vagina </td>
-                            <td>$ 4,000.00</td>
-                            <td>192.168.10.3</td>
-                            <td>32 / 01 / 2020</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div class="table-footer">
-                    <spam class="total" >Total 31,000.00</spam>
+                <div class="nuevo-cliente col-md-6 col-lg-6">
+                    <button class="btn-nc" data-toggle="modal" data-target="#exampleModal" type="submit">Nuevo Pago</button>
                 </div>
             </div>
-    
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">			
+                    <h4 class="modal-title">Nuevo Pago</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="altapago.php" method="post">
+                        <div class="form-group">
+                            <input id="localidad" type="text" class="input-nc nc-nombre border-nc" name="localidad" placeholder="Localidad" required="required">		
+                        </div>
+                        <div class="form-group">
+                            <input id="nombre" type="text" class="input-nc nc-telefono border-nc" name="cliente_id" placeholder="Cliente ID" required="required">		
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="input-nc nc-monto border-nc" name="monto" placeholder="Monto" required="required">		
+                        </div>
+                        <div class="form-group">
+                            <input id="meses" type="text" class="input-nc np-border" name="meses" placeholder="Meses" required="required">		
+                        </div> 
+                        <div class="modal-footer">
+                            <!-- <button type="button" id="limpiar-nc" class="btn-mnc btn-limpiar">Limpiar</button> -->
+                            <button type="button" class="btn-mnc btn-cerrar" data-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn-mnc btn-guardar">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

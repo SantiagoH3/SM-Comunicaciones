@@ -39,13 +39,14 @@ CREATE TABLE `clientes` (
 --
 
 CREATE TABLE `pagos` (
-  `id_pago` int(11) NOT NULL,
+  `id_pago` int(11) NOT NULL AUTO_INCREMENT,
   `cliente_id` int(11) NOT NULL,
   `cliente_nombre` int(11) NOT NULL,
   `autorizacion` varchar(20) NOT NULL,
   `monto` varchar(20) NOT NULL,
-  `fecha` date NOT NULL,
-  `meses` varchar(50) NOT NULL
+  `fecha` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `meses` varchar(50) NOT NULL,
+  PRIMARY KEY (id_pago)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------

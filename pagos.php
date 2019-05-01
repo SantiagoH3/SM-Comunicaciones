@@ -1,4 +1,12 @@
 <?php
+    if (!$_GET){
+        header('Location:pagos.php?pagina=1');
+    }
+
+    if ($_GET['pagina']>$paginas || $_GET['pagina']<1){
+        header('Location:pagos.php?pagina=1');
+    }
+    
     include "DBconection.php";
 
     $sql = 'SELECT * FROM pagos';
@@ -10,14 +18,6 @@
     $pagos_x_pagina = 10;
     $paginas = $total_pagos/$pagos_x_pagina;
     $paginas = ceil($paginas);
-
-    if (!$_GET){
-        header('Location:pagos.php?pagina=1');
-    }
-
-    if ($_GET['pagina']>$paginas || $_GET['pagina']<1){
-        header('Location:pagos.php?pagina=1');
-    }
 
     $iniciar = ($_GET['pagina']-1)*$pagos_x_pagina;
     $sql_pagos = 'SELECT * FROM pagos LIMIT :iniciar,:pagos';

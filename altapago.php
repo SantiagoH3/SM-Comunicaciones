@@ -1,4 +1,7 @@
 <?php
+ob_start();
+?>
+<?php
 include ("DBconection.php");
 if(!isset($_POST['cliente_id']) && !isset($_POST['autorizacion']) && !isset($_POST['monto']) && !isset($_POST['meses'])){
   header("Location: pagos.php");
@@ -17,4 +20,7 @@ if(!isset($_POST['cliente_id']) && !isset($_POST['autorizacion']) && !isset($_PO
   mysqli_query($conexion,$Sql);
   header("Location: pagos.php");
 }
+?>
+<?php
+ob_end_flush();
 ?>

@@ -1,4 +1,7 @@
 <?php
+ob_start();
+?>
+<?php
 include ("DBconection.php");
 if(!isset($_POST['nombre']) &&  !isset($_POST['localidad']) && !isset($_POST['telefono']) && !isset($_POST['ip'])){
   header("Location: clientes.php");
@@ -17,4 +20,7 @@ if(!isset($_POST['nombre']) &&  !isset($_POST['localidad']) && !isset($_POST['te
   mysqli_query($conexion,$Sql);
   header("Location: clientes.php");
 }
+?>
+<?php
+ob_end_flush();
 ?>

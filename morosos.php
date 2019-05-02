@@ -1,5 +1,9 @@
 <?php
-    include "DBconection.php";
+include "DBconection.php";
+session_start();
+if (!isset($_SESSION['usuario'])) {
+    header('Location: login.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +36,7 @@
                 <a class="nav-link active" href="morosos.php">Morosos<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item menu logout">
-                <a class="nav-link" href="#">Log Out</a>
+                <a class="nav-link" href="./cerrar.php">Log Out</a>
             </li>
             </ul>
         </div>

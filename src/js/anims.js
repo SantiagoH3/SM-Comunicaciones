@@ -3,5 +3,5 @@ $(document).ready(function() {
   
   setTimeout(function(){
     $('#input-group, #input-group').addClass('login-start');
-  }, 600);
+  },1);
 });

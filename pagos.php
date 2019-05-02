@@ -1,32 +1,38 @@
 <?php
-    if (!$_GET){
-        header('Location:pagos.php?pagina=1');
-    }
+ob_start();
+session_start();
+if (!isset($_SESSION['usuario'])) {
+	header('Location: login.php');
+}
+?>
+<?php
+include "DBconection.php";
 
-    if ($_GET['pagina']>$paginas || $_GET['pagina']<1){
-        header('Location:pagos.php?pagina=1');
-    }
-    
-    include "DBconection.php";
+if (!$_GET){
+    header('Location:pagos.php?pagina=1');
+}
 
-    $sql = 'SELECT * FROM pagos';
-    $sentencia = $pdo->prepare($sql);
-    $sentencia->execute();
-    $res = $sentencia->fetchAll();
+$sql = 'SELECT * FROM pagos';
+$sentencia = $pdo->prepare($sql);
+$sentencia->execute();
+$res = $sentencia->fetchAll();
 
-    $total_pagos = $sentencia->rowCount();
-    $pagos_x_pagina = 10;
-    $paginas = $total_pagos/$pagos_x_pagina;
-    $paginas = ceil($paginas);
+$total_pagos = $sentencia->rowCount();
+$pagos_x_pagina = 10;
+$paginas = $total_pagos/$pagos_x_pagina;
+$paginas = ceil($paginas);
 
-    $iniciar = ($_GET['pagina']-1)*$pagos_x_pagina;
-    $sql_pagos = 'SELECT * FROM pagos LIMIT :iniciar,:pagos';
-    $sentencia_pagos = $pdo->prepare($sql_pagos);
-    $sentencia_pagos->bindParam(':iniciar', $iniciar, PDO::PARAM_INT);
-    $sentencia_pagos->bindParam(':pagos', $pagos_x_pagina, PDO::PARAM_INT);
-    $sentencia_pagos->execute();
+if ($_GET['pagina'] > $paginas || $_GET['pagina'] < 1){
+    header('Location:pagos.php?pagina=1');
+}
 
-    $resultado_pagos = $sentencia_pagos->fetchAll();
+$iniciar = ($_GET['pagina']-1)*$pagos_x_pagina;
+$sql_pagos = 'SELECT * FROM pagos LIMIT :iniciar,:pagos';
+$sentencia_pagos = $pdo->prepare($sql_pagos);
+$sentencia_pagos->bindParam(':iniciar', $iniciar, PDO::PARAM_INT);
+$sentencia_pagos->bindParam(':pagos', $pagos_x_pagina, PDO::PARAM_INT);
+$sentencia_pagos->execute();
+$resultado_pagos = $sentencia_pagos->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +65,7 @@
                 <a class="nav-link" href="morosos.php">Morosos <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item menu logout">
-                <a class="nav-link" href="#">Log Out</a>
+                <a class="nav-link" href="./cerrar.php">Log Out</a>
             </li>
             </ul>
         </div>
@@ -153,9 +159,9 @@
                 </div>
                 <div class="modal-body">
                     <form action="altapago.php" method="post">
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <input id="localidad" type="text" class="input-nc nc-nombre border-nc" name="localidad" placeholder="Localidad" required="required">		
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <input id="nombre" type="text" class="input-nc nc-telefono border-nc" name="cliente_id" placeholder="Cliente ID" required="required">		
                         </div>
@@ -177,3 +183,6 @@
     </div>
 </body>
 </html>
+<?php
+ob_end_flush();
+?>

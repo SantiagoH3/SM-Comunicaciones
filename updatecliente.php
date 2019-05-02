@@ -1,4 +1,7 @@
 <?php
+ob_start();
+?>
+<?php
 include ("DBconection.php");
 //Creamos el cleinte
 $sql = "UPDATE clientes 
@@ -7,4 +10,7 @@ $sql = "UPDATE clientes
 
 mysqli_query($conexion,$sql);
 header("Location: clientes.php");
+?>
+<?php
+ob_end_flush();
 ?>

@@ -1,32 +1,38 @@
 <?php
-    if (!$_GET){
-        header('Location:clientes.php?pagina=1');
-    }
+ob_start();
+session_start();
+if (!isset($_SESSION['usuario'])) {
+	header('Location: login.php');
+}
+?>
+<?php
+include "DBconection.php";
 
-    if ($_GET['pagina']>$paginas || $_GET['pagina']<1){
-        header('Location:clientes.php?pagina=1');
-    }
+if (!$_GET){
+  header('Location:clientes.php?pagina=1');
+}
 
-    include "DBconection.php";
+$sql = 'SELECT * FROM clientes';
+$sentencia = $pdo->prepare($sql);
+$sentencia->execute();
+$res = $sentencia->fetchAll();
 
-    $sql = 'SELECT * FROM clientes';
-    $sentencia = $pdo->prepare($sql);
-    $sentencia->execute();
-    $res = $sentencia->fetchAll();
+$total_cleintes = $sentencia->rowCount();
+$clientes_x_pagina = 10;
+$paginas = $total_cleintes/$clientes_x_pagina;
+$paginas = ceil($paginas);
 
-    $total_cleintes = $sentencia->rowCount();
-    $clientes_x_pagina = 10;
-    $paginas = $total_cleintes/$clientes_x_pagina;
-    $paginas = ceil($paginas);
+if ($_GET['pagina'] > $paginas || $_GET['pagina'] < 1){
+    header('Location:clientes.php?pagina=1');
+}
 
-    $iniciar = ($_GET['pagina']-1)*$clientes_x_pagina;
-    $sql_clientes = 'SELECT * FROM clientes LIMIT :iniciar,:clientes';
-    $sentencia_clientes = $pdo->prepare($sql_clientes);
-    $sentencia_clientes->bindParam(':iniciar', $iniciar, PDO::PARAM_INT);
-    $sentencia_clientes->bindParam(':clientes', $clientes_x_pagina, PDO::PARAM_INT);
-    $sentencia_clientes->execute();
-
-    $resultado_clientes = $sentencia_clientes->fetchAll();
+$iniciar = ($_GET['pagina']-1)*$clientes_x_pagina;
+$sql_clientes = 'SELECT * FROM clientes LIMIT :iniciar,:clientes';
+$sentencia_clientes = $pdo->prepare($sql_clientes);
+$sentencia_clientes->bindParam(':iniciar', $iniciar, PDO::PARAM_INT);
+$sentencia_clientes->bindParam(':clientes', $clientes_x_pagina, PDO::PARAM_INT);
+$sentencia_clientes->execute();
+$resultado_clientes = $sentencia_clientes->fetchAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,7 +65,7 @@
             <a class="nav-link" href="morosos.php">Morosos</a>
         </li>
         <li class="nav-item menu logout">
-            <a class="nav-link" href="#">Log Out</a>
+            <a class="nav-link" href="./cerrar.php">Log Out</a>
         </li>
         </ul>
     </div>
@@ -127,19 +133,23 @@
                                             <div class="modal-body">
                                                 <form id="update-customer" action="updatecliente.php" method="post">
                                                     <div class="form-group">
-                                                        <input value="'.$row[1].'" id="nombre" type="text" class="input-nc nc-nombre" name="nombre" placeholder="Nombre(s)" required="required">		
+                                                        <label class="label-edit">Nombre:</label>
+                                                        <input value="'.$row[1].'" id="nombre" type="text" class="input-nc border-edit" name="nombre" placeholder="Nombre(s)" required="required">		
                                                     </div>
                                                     <div class="form-group">
-                                                        <input value="'.$row[3].'" id="localidad" type="text" class="input-nc nc-localidad border-nc" name="localidad" placeholder="Localidad" required="required">		
+                                                        <label class="label-edit">Localidad:</label>
+                                                        <input value="'.$row[3].'" id="localidad" type="text" class="input-nc nc-localidad border-edit" name="localidad" placeholder="Localidad" required="required">		
                                                     </div>
                                                     <!-- <div class="form-group">
                                                         <input type="text" class="input-nc nc-fechaderegistro border-nc" name="fecharegistro" placeholder="Fecha de Registro" required="required">		
                                                     </div> -->
                                                     <div class="form-group">
-                                                        <input value="'.$row[2].'" id="telefono" type="text" class="input-nc nc-telefono border-nc" name="telefono" placeholder="Número Telefónico" required="required">		
+                                                        <label class="label-edit">Telefono:</label>
+                                                        <input value="'.$row[2].'" id="telefono" type="text" class="input-nc nc-telefono border-edit" name="telefono" placeholder="Número Telefónico" required="required">		
                                                     </div>
                                                     <div class="form-group">
-                                                        <input value="'.$row[4].'" id="ip" type="text" class="input-nc np-border" name="ip" placeholder="Dirección IP" required="required">
+                                                        <label class="label-edit">IP:</label>
+                                                        <input value="'.$row[4].'" id="ip" type="text" class="input-nc border-edit" name="ip" placeholder="Dirección IP" required="required">
                                                         <input type="hidden" name="id" value="'.$row[0].'">	
                                                     </div> 
                                                     <div class="modal-footer">
@@ -200,21 +210,32 @@
                     </div>
                     <div class="modal-body">
                         <form action="altacliente.php" method="post">
+                            
+                            
+                            
                             <div class="form-group">
-                                <input id="nombre" type="text" class="input-nc nc-nombre" name="nombre" placeholder="Nombre(s)" required="required">		
+                                <label class="label-edit">Nombre:</label>
+                                <input id="nombre" type="text" class="input-nc border-edit" name="nombre" placeholder="Nombre(s)" required="required">		
                             </div>
                             <div class="form-group">
-                                <input id="localidad" type="text" class="input-nc nc-localidad border-nc" name="localidad" placeholder="Localidad" required="required">		
+                                <label class="label-edit">Localidad:</label>
+                                <input id="localidad" type="text" class="input-nc nc-localidad border-edit" name="localidad" placeholder="Localidad" required="required">		
                             </div>
                             <!-- <div class="form-group">
                                 <input type="text" class="input-nc nc-fechaderegistro border-nc" name="fecharegistro" placeholder="Fecha de Registro" required="required">		
                             </div> -->
                             <div class="form-group">
-                                <input id="telefono" type="text" class="input-nc nc-telefono border-nc" name="telefono" placeholder="Número Telefónico" required="required">		
+                                <label class="label-edit">Telefono:</label>
+                                <input id="telefono" type="text" class="input-nc nc-telefono border-edit" name="telefono" placeholder="Número Telefónico" required="required">		
                             </div>
                             <div class="form-group">
-                                <input id="ip" type="text" class="input-nc np-border" name="ip" placeholder="Dirección IP" required="required">		
-                            </div> 
+                                <label class="label-edit">IP:</label>
+                                <input id="ip" type="text" class="input-nc border-edit" name="ip" placeholder="Dirección IP" required="required">
+                                <input type="hidden" name="id" value="'.$row[0].'">	
+                            </div>
+
+
+                            
                             <div class="modal-footer">
                                 <!-- <button type="button" id="limpiar-nc" class="btn-mnc btn-limpiar">Limpiar</button> -->
                                 <button type="button" class="btn-mnc btn-cerrar" data-dismiss="modal">Cerrar</button>
@@ -230,3 +251,6 @@
     <script src="eliminar-cliente.js"></script>
 </body>
 </html>
+<?php
+ob_end_flush();
+?>

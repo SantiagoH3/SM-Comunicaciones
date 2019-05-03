@@ -163,13 +163,16 @@ $resultado_pagos = $sentencia_pagos->fetchAll();
                             <input id="localidad" type="text" class="input-nc nc-nombre border-nc" name="localidad" placeholder="Localidad" required="required">		
                         </div> -->
                         <div class="form-group">
-                            <input id="nombre" type="text" class="input-nc nc-telefono border-nc" name="cliente_id" placeholder="Cliente ID" required="required">		
+                            <label class="label-edit">Cliente ID:</label>
+                            <input id="nombre" type="text" class="input-nc nc-telefono border-edit" name="cliente_id" placeholder="Cliente ID" required="required">		
                         </div>
                         <div class="form-group">
-                            <input type="text" class="input-nc nc-monto border-nc" name="monto" placeholder="Monto" required="required">		
+                            <label class="label-edit">Telefono:</label>
+                            <input type="text" class="input-nc nc-monto border-edit" name="monto" placeholder="Monto" required="required">		
                         </div>
                         <div class="form-group">
-                            <input id="meses" type="text" class="input-nc np-border" name="meses" placeholder="Meses" required="required">		
+                            <label class="label-edit">Meses:</label>
+                            <input id="meses" type="text" class="input-nc border-edit" name="meses" placeholder="Meses" required="required">		
                         </div> 
                         <div class="modal-footer">
                             <!-- <button type="button" id="limpiar-nc" class="btn-mnc btn-limpiar">Limpiar</button> -->

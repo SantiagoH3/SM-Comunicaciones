@@ -210,9 +210,6 @@ $resultado_clientes = $sentencia_clientes->fetchAll();
                     </div>
                     <div class="modal-body">
                         <form action="altacliente.php" method="post">
-                            
-                            
-                            
                             <div class="form-group">
                                 <label class="label-edit">Nombre:</label>
                                 <input id="nombre" type="text" class="input-nc border-edit" name="nombre" placeholder="Nombre(s)" required="required">		
@@ -233,9 +230,6 @@ $resultado_clientes = $sentencia_clientes->fetchAll();
                                 <input id="ip" type="text" class="input-nc border-edit" name="ip" placeholder="Dirección IP" required="required">
                                 <input type="hidden" name="id" value="'.$row[0].'">	
                             </div>
-
-
-                            
                             <div class="modal-footer">
                                 <!-- <button type="button" id="limpiar-nc" class="btn-mnc btn-limpiar">Limpiar</button> -->
                                 <button type="button" class="btn-mnc btn-cerrar" data-dismiss="modal">Cerrar</button>

@@ -64,6 +64,9 @@ $resultado_clientes = $sentencia_clientes->fetchAll();
         <li class="nav-item menu">
             <a class="nav-link" href="morosos.php">Morosos</a>
         </li>
+        <li class="nav-item menu">
+            <a class="nav-link" href="notificaciones.php">Notificaciones</a>
+        </li>
         <li class="nav-item menu logout">
             <a class="nav-link" href="./cerrar.php">Log Out</a>
         </li>
@@ -84,86 +87,98 @@ $resultado_clientes = $sentencia_clientes->fetchAll();
                             <th class="hcenter" scope="col">IP</th>
                             <th class="hcenter" scope="col">Localidad</th>
                             <th class="nom" scope="col">Nombre</th>
+                            <th class="hcenter" scope="col">Vencido</th>
                             <th class="hcenter" scope="col">Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php 
                             foreach($resultado_clientes as $row){
-                            echo '
-                            <tr>
-                                <th scope="row">
-                                    '.$row[0].'
-                                </th>
-                                <td>
-                                    '.$row[4].'
-                                </td>
-                                <td>
-                                    '.$row[3].'
-                                </td>
-                                <td class="nom">
-                                    '.$row[1].'
-                                </td>
-                                <td>
-                                    <button class="edit" data-toggle="modal" data-target="#modal-update'.$row[0].'"><i class="fas fa-pencil-alt"></i></button>
-                                    <button class="delete" data-toggle="modal" data-target="#delete'.$row[0].'"><i class="far fa-trash-alt"></i></button>
-                                </td>
-                                <!-- Modal eliminar cleinte -->
-                                <div class="modal fade modal-ec" id="delete'.$row[0].'" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-body">
-                                                <h2>¿Seguro que quieres eliminar este Cliente?</h2>
-                                                <p class="datos-cliente">N: '.$row[1].'&nbsp;&nbsp;&nbsp;&nbsp;IP: '.$row[4].'</p>
-                                                <div class="buttons">
-                                                    <button class="si-bc eliminar" data-id="'.$row[0].'">Si</button>
-                                                    <button class="no-bc" data-dismiss="modal">No</button>
+                                $vencido;
+
+                                if ($row[6] == "no") {
+                                    $vencido = '<img style="width: 30px;" class="ok-luz" src="./okimg.gif">';
+                                } else {
+                                    $vencido = '<img style="width: 30px;" class="ok-luz" src="./src/assets/bad.gif">';
+                                }
+                                
+                                echo '
+                                <tr>
+                                    <th scope="row">
+                                        '.$row[0].'
+                                    </th>
+                                    <td>
+                                        '.$row[4].'
+                                    </td>
+                                    <td>
+                                        '.$row[3].'
+                                    </td>
+                                    <td class="nom">
+                                        '.$row[1].'
+                                    </td>
+                                    <td>
+                                        '.$vencido.'
+                                    </td>
+                                    <td>
+                                        <button class="edit" data-toggle="modal" data-target="#modal-update'.$row[0].'"><i class="fas fa-pencil-alt"></i></button>
+                                        <button class="delete" data-toggle="modal" data-target="#delete'.$row[0].'"><i class="far fa-trash-alt"></i></button>
+                                    </td>
+                                    <!-- Modal eliminar cleinte -->
+                                    <div class="modal fade modal-ec" id="delete'.$row[0].'" tabindex="-1" role="dialog" aria-labelledby="delete" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <h2>¿Seguro que quieres eliminar este Cliente?</h2>
+                                                    <p class="datos-cliente">N: '.$row[1].'&nbsp;&nbsp;&nbsp;&nbsp;IP: '.$row[4].'</p>
+                                                    <div class="buttons">
+                                                        <button class="si-bc eliminar" data-id="'.$row[0].'">Si</button>
+                                                        <button class="no-bc" data-dismiss="modal">No</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- Modal -->
-                                <div class="modal fade" id="modal-update'.$row[0].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">			
-                                                <h4 class="modal-title">Modificar Cliente</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form id="update-customer" action="updatecliente.php" method="post">
-                                                    <div class="form-group">
-                                                        <label class="label-edit">Nombre:</label>
-                                                        <input value="'.$row[1].'" id="nombre" type="text" class="input-nc border-edit" name="nombre" placeholder="Nombre(s)" required="required">		
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="label-edit">Localidad:</label>
-                                                        <input value="'.$row[3].'" id="localidad" type="text" class="input-nc nc-localidad border-edit" name="localidad" placeholder="Localidad" required="required">		
-                                                    </div>
-                                                    <!-- <div class="form-group">
-                                                        <input type="text" class="input-nc nc-fechaderegistro border-nc" name="fecharegistro" placeholder="Fecha de Registro" required="required">		
-                                                    </div> -->
-                                                    <div class="form-group">
-                                                        <label class="label-edit">Telefono:</label>
-                                                        <input value="'.$row[2].'" id="telefono" type="text" class="input-nc nc-telefono border-edit" name="telefono" placeholder="Número Telefónico" required="required">		
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label class="label-edit">IP:</label>
-                                                        <input value="'.$row[4].'" id="ip" type="text" class="input-nc border-edit" name="ip" placeholder="Dirección IP" required="required">
-                                                        <input type="hidden" name="id" value="'.$row[0].'">	
-                                                    </div> 
-                                                    <div class="modal-footer">
-                                                        <!-- <button type="button" id="limpiar-nc" class="btn-mnc btn-limpiar">Limpiar</button> -->
-                                                        <button type="button" class="btn-mnc btn-cerrar" data-dismiss="modal">Cerrar</button>
-                                                        <button type="submit" class="btn-mnc btn-guardar" data-id="'.$row[0].'">Modificar</button>
-                                                    </div>
-                                                </form>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="modal-update'.$row[0].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">			
+                                                    <h4 class="modal-title">Modificar Cliente</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form id="update-customer" action="updatecliente.php" method="post">
+                                                        <div class="form-group">
+                                                            <label class="label-edit">Nombre:</label>
+                                                            <input value="'.$row[1].'" id="nombre" type="text" class="input-nc border-edit" name="nombre" placeholder="Nombre(s)" required="required">		
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="label-edit">Localidad:</label>
+                                                            <input value="'.$row[3].'" id="localidad" type="text" class="input-nc nc-localidad border-edit" name="localidad" placeholder="Localidad" required="required">		
+                                                        </div>
+                                                        <!-- <div class="form-group">
+                                                            <input type="text" class="input-nc nc-fechaderegistro border-nc" name="fecharegistro" placeholder="Fecha de Registro" required="required">		
+                                                        </div> -->
+                                                        <div class="form-group">
+                                                            <label class="label-edit">Telefono:</label>
+                                                            <input value="'.$row[2].'" id="telefono" type="text" class="input-nc nc-telefono border-edit" name="telefono" placeholder="Número Telefónico" required="required">		
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="label-edit">IP:</label>
+                                                            <input value="'.$row[4].'" id="ip" type="text" class="input-nc border-edit" name="ip" placeholder="Dirección IP" required="required">
+                                                            <input type="hidden" name="id" value="'.$row[0].'">	
+                                                        </div> 
+                                                        <div class="modal-footer">
+                                                            <!-- <button type="button" id="limpiar-nc" class="btn-mnc btn-limpiar">Limpiar</button> -->
+                                                            <button type="button" class="btn-mnc btn-cerrar" data-dismiss="modal">Cerrar</button>
+                                                            <button type="submit" class="btn-mnc btn-guardar" data-id="'.$row[0].'">Modificar</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </tr>
-                            ';
+                                </tr>
+                                ';
                             }
                         ?>
                     </tbody>

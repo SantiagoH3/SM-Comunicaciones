@@ -222,7 +222,7 @@ body .modal-ec .modal-body .buttons .no-bc {
 /* morosos */
 body {
   font-family: 'Poppins';
-  background-color: #2d70b9;
+  background-color: #0c2461;;
 }
 table thead {
   text-align: center;
@@ -468,4 +468,34 @@ i.fa.fa-filter {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   border-color: #343a40 !important;
+}
+
+.fecha {
+  color: white !important;
+}
+
+.notificacion {
+  width: 100%;
+  padding: 20px;
+  margin-top: 10px;
+  border-radius: 15px;
+  background-color: white;
+}
+
+.nombre-not {
+  /* background-color: red; */
+}
+
+.space {
+  height: 70px;
+}
+
+.info-not {
+  width: 25%;
+  text-align: center;
+  float: left;
+}
+
+.alert-img {
+  width: 30px;
 }

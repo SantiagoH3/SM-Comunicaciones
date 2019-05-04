@@ -29,7 +29,9 @@
     if(!$conexion){
       echo '<p class="conexion-info fail">Conexion: FAIL </p>';
     } else {
-      echo '<p class="conexion-info">Conexion: OK <img style="width: 20px;" class="ok-luz" src="./okimg.gif"></p>';
+      $fecha = date("Y-m-d");
+      $textFecha = '<b>Fecha:</b> ' . $fecha;
+      echo '<p class="conexion-info">Conexion: OK <img style="width: 20px;" class="ok-luz" src="./okimg.gif"><br><span class="fecha">'.$textFecha.'</span></p>';
     }
   ?>
 </body>

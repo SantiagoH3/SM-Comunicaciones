@@ -35,6 +35,9 @@ if (!isset($_SESSION['usuario'])) {
             <li class="nav-item menu">
                 <a class="nav-link active" href="morosos.php">Morosos<span class="sr-only">(current)</span></a>
             </li>
+            <li class="nav-item menu">
+                <a class="nav-link" href="notificaciones.php">Notificaciones</a>
+            </li>
             <li class="nav-item menu logout">
                 <a class="nav-link" href="./cerrar.php">Log Out</a>
             </li>

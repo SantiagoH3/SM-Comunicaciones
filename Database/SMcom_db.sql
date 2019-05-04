@@ -32,6 +32,8 @@ CREATE TABLE `clientes` (
   PRIMARY KEY (id_cliente)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+ALTER TABLE `clientes` ADD `vencido` BOOLEAN NULL AFTER `fecha-registro`;
+
 -- --------------------------------------------------------
 
 --

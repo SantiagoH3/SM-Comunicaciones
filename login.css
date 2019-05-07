@@ -154,10 +154,6 @@ body .login .show h4 {
 }
 
 /* cliente */
-body {
-  font-family: 'Poppins';
-  background-color: #e8f1fd;
-}
 body .nom {
   text-align: left;
 }

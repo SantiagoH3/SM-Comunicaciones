@@ -17,6 +17,11 @@ $sentencia = $pdo->prepare($sql);
 $sentencia->execute();
 $res = $sentencia->fetchAll();
 
+$sql_clientes = 'SELECT * FROM clientes';
+$sentencia_clientes = $pdo->prepare($sql_clientes);
+$sentencia_clientes->execute();
+$res_clientes = $sentencia_clientes->fetchAll();
+
 $total_pagos = $sentencia->rowCount();
 $pagos_x_pagina = 10;
 $paginas = $total_pagos/$pagos_x_pagina;
@@ -86,7 +91,8 @@ $resultado_pagos = $sentencia_pagos->fetchAll();
                     <th class="hcenter" scope="col">Nombre</th>
                     <th class="hcenter" scope="col">Monto</th>
                     <th class="hcenter" scope="col">IP</th>
-                    <th class="hcenter" scope="col">Fecha</th>
+                    <th class="hcenter" scope="col">Fecha registro</th>
+                    <th class="hcenter" scope="col">Vence</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -106,10 +112,13 @@ $resultado_pagos = $sentencia_pagos->fetchAll();
                                 '.$dato["nombre"].'
                             </td>
                             <td>
-                                $ '.$row[3].'
+                                $ '.$row[2].'
                             </td>
                             <td>
                                 '.$dato["dir_ip"].'
+                            </td>
+                            <td>
+                                '.$row[3].'
                             </td>
                             <td>
                                 '.$row[4].'
@@ -167,15 +176,22 @@ $resultado_pagos = $sentencia_pagos->fetchAll();
                         </div> -->
                         <div class="form-group">
                             <label class="label-edit">Cliente ID:</label>
-                            <input id="nombre" type="text" class="input-nc nc-telefono border-edit" name="cliente_id" placeholder="Cliente ID" required="required">		
+                            <!-- <input id="nombre" type="text" class="input-nc nc-telefono border-edit" name="cliente_id" placeholder="Cliente ID" required="required"> -->
+                            <select class="input-nc nc-telefono border-edit" name="cliente_id">
+                                <?php
+                                foreach($res_clientes as $row){
+                                    echo '<option value="'.$row[0].'">'.$row[1].'&nbsp;&nbsp;&nbsp;L: '.$row[3].'&nbsp;&nbsp;&nbsp;IP: '.$row[4].'</option>';
+                                }
+                                ?>
+                            </select>		
                         </div>
                         <div class="form-group">
-                            <label class="label-edit">Telefono:</label>
+                            <label class="label-edit">Monto:</label>
                             <input type="text" class="input-nc nc-monto border-edit" name="monto" placeholder="Monto" required="required">		
                         </div>
                         <div class="form-group">
-                            <label class="label-edit">Meses:</label>
-                            <input id="meses" type="text" class="input-nc border-edit" name="meses" placeholder="Meses" required="required">		
+                            <label class="label-edit">Vence en:</label>
+                            <input id="meses" type="date" class="input-nc border-edit" name="meses" placeholder="Meses" required="required">		
                         </div> 
                         <div class="modal-footer">
                             <!-- <button type="button" id="limpiar-nc" class="btn-mnc btn-limpiar">Limpiar</button> -->

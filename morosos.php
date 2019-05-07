@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include "DBconection.php";
 session_start();
 if (!isset($_SESSION['usuario'])) {
@@ -95,3 +96,6 @@ if (!isset($_SESSION['usuario'])) {
     </div>
 </body>
 </html>
+<?php
+ob_end_flush();
+?>

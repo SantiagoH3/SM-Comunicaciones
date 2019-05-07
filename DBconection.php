@@ -14,6 +14,13 @@
     print "Error! ". $e->getMesssage() ."<br/>";
     die();
   }
+
+  $sentenciaSql = 'SELECT * FROM clientes';
+  $vencimiento = $pdo->prepare($sentenciaSql);
+  $vencimiento->execute();
+  $resven = $vencimiento->fetchAll();
+
+  $fecha = date("Y-m-d");
 ?>
 
 <!DOCTYPE html>
@@ -29,9 +36,16 @@
     if(!$conexion){
       echo '<p class="conexion-info fail">Conexion: FAIL </p>';
     } else {
-      $fecha = date("Y-m-d");
       $textFecha = '<b>Fecha:</b> ' . $fecha;
       echo '<p class="conexion-info">Conexion: OK <img style="width: 20px;" class="ok-luz" src="./okimg.gif"><br><span class="fecha">'.$textFecha.'</span></p>';
+    }
+    foreach($resven as $row){
+
+      if ($row[7] == $fecha) {
+
+        $sql = 'UPDATE clientes SET vencido = "si" WHERE id_cliente ='.$row[0];
+        mysqli_query($conexion,$sql);
+      }
     }
   ?>
 </body>

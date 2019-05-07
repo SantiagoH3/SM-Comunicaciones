@@ -120,6 +120,7 @@ $resultado_clientes = $sentencia_clientes->fetchAll();
                                         '.$vencido.'
                                     </td>
                                     <td>
+                                        <button class="edit" data-toggle="modal" data-target="#modal-pagar'.$row[0].'"><i class="fas fa-money-check-alt"></i></button>
                                         <button class="edit" data-toggle="modal" data-target="#modal-update'.$row[0].'"><i class="fas fa-pencil-alt"></i></button>
                                         <button class="delete" data-toggle="modal" data-target="#delete'.$row[0].'"><i class="far fa-trash-alt"></i></button>
                                     </td>
@@ -171,6 +172,37 @@ $resultado_clientes = $sentencia_clientes->fetchAll();
                                                             <!-- <button type="button" id="limpiar-nc" class="btn-mnc btn-limpiar">Limpiar</button> -->
                                                             <button type="button" class="btn-mnc btn-cerrar" data-dismiss="modal">Cerrar</button>
                                                             <button type="submit" class="btn-mnc btn-guardar" data-id="'.$row[0].'">Modificar</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Modal Pago -->
+                                    <div class="modal fade" id="modal-pagar'.$row[0].'" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">			
+                                                    <h4 class="modal-title">Registrar pago</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="altapago.php" method="post">
+                                                        <div class="form-group">
+                                                            <label class="label-edit">Cliente ID:</label>
+                                                            <input id="nombre" type="text" class="input-nc nc-telefono border-edit" name="cliente_id" placeholder="Cliente ID" value="'.$row[0].'" required="required">		
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="label-edit">Monto:</label>
+                                                            <input type="text" class="input-nc nc-monto border-edit" name="monto" placeholder="Monto" required="required">		
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="label-edit">Vence en:</label>
+                                                            <input id="meses" type="date" class="input-nc border-edit" name="meses" placeholder="Meses" required="required">		
+                                                        </div> 
+                                                        <div class="modal-footer">
+                                                            <!-- <button type="button" id="limpiar-nc" class="btn-mnc btn-limpiar">Limpiar</button> -->
+                                                            <button type="button" class="btn-mnc btn-cerrar" data-dismiss="modal">Cerrar</button>
+                                                            <button type="submit" class="btn-mnc btn-guardar">Guardar</button>
                                                         </div>
                                                     </form>
                                                 </div>
